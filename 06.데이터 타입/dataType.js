@@ -70,5 +70,28 @@ console.log(foo); // false
 var foo;
 console.log(foo); // undefined
 
+// 5. null type
+// null은 변수에 값이 없다는 것을 의도적으로 명시할 때 사용
+// 변수에 null을 할당하는 것은 변수가 이전에 참조하던 값을 더 이상 참조하지 않겠다는 의미
+
+// 6. Symbol type
+// 심벌 값 생성
+var key = Symbol('key');
+console.log(typeof key); // symbol
+
+// 객체 생성
+var obj = {};
+
+// 이름이 충돌할 위험이 없는 유일무이한 값인 심벌을 프로퍼티 키로 사용한다.
+obj[key] = 'value';
+console.log(obj[key]); // value
 
 
+// javascript에서는 값을 할당하는 시점에 변수위 타입이 동적으로 결정
+// 동적 타입 언어(dynamic typing) => 유연성(flexibility)는 높지만 신뢰성(reliability)는 떨어짐
+
+// 1. 변수는 꼭 필요한 경우에 한해 제한적으로 사용. 최소한으로 유지
+// 2. 변수의 유효범위(스코프)는 최대한 좁게 만들자
+// 3. 전역 변수는 최대한 사용하지 않기
+// 4. 변수 보다는 상수(const)를 사용해 값의 변경을 억제
+// 5. 변수 이름은 변수의 목적이나 의미를 파악할 수 있도록 네이밍. 심사숙고해서 지어라!!
