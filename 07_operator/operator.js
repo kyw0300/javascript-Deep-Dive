@@ -35,5 +35,25 @@ console.log(result); // 짝수
 
 // typeof 연산자
 // typeof 연산자로 null 값을 연산해보면 "null"이 아닌 "object"를 반환한다는 데 주의!! 버그임
-// 값이 null 타입인지 확인할 때는 typeof 연산자를 사용하지 말고 일치 연산자(===)를 사용하자!
 // 선언하지 않은 식별자를 typeof 연산자로 연산해 보면 ReferenceError가 발생하지 않고 undefined를 반환한다.
+typeof ''              // -> "string"
+typeof 1               // -> "number"
+typeof NaN             // -> "number"
+typeof true            // -> "boolean"
+typeof undefined       // -> "undefined"
+typeof Symbol()        // -> "symbol"
+typeof null            // -> "object"
+typeof []              // -> "object"
+typeof {}              // -> "object"
+typeof new Date()      // -> "object"
+typeof /test/gi        // -> "object"
+typeof function () {}  // -> "function"
+
+// 값이 null 타입인지 확인할 때는 typeof 연산자를 사용하지 말고 일치 연산자(===)를 사용하자!
+var foo = null;
+
+typeof foo === null; // -> false
+foo === null;        // -> true
+
+// undeclared 식별자를 선언한 적이 없다.
+typeof undeclared; // -> undefined
