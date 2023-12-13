@@ -1,3 +1,10 @@
+// 원시 타입(primitive type)과 참조 타입(reference type)
+// 원시 값을 변수에 할당하면 변수(확보된 메모리 공간)에는 실제 값이 저장
+// 객체를 변수에 할당하면 변수(확보된 메모리 공간)에는 참조 값이 저장
+
+// 원시 값을 갖는 변수를 다른 변수에 할당하면 원본의 원시 값이 복사되어 전달 ==> 값에 의한 전달(pass by value)
+// 객체를 가리키는 변수를 다른 변수에 할당하면 원본의 참조 값이 복사되어 전달 ==> 참조에 의한 전달(pass by reference)
+
 var score = 80;
 var copy = score;
 
@@ -30,7 +37,9 @@ console.log(score === copy); // false
 
 
 // 얕은 복사와 깊은 복사
-const o = { x: { y: 1 } };
+const o = {
+    x: { y: 1 }
+};
 
 // 얕은 복사
 const c1 = { ...o }; // 35장 "스프레드 문법" 참고
@@ -44,3 +53,16 @@ const _ = require('lodash');
 const c2 = _.cloneDeep(o);
 console.log(c2 === o); // false
 console.log(c2.x === o.x); // false
+
+
+// QUIZ~
+var person1 = {
+    name: 'Lee'
+};
+
+var person2 = {
+    name: 'Lee'
+};
+
+console.log(person1 === person2); // false
+console.log(person1.name === person2.name); // true
