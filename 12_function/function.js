@@ -39,3 +39,16 @@ foo(); // foo
 // 함수 리터럴에서는 함수 이름을 생략할 수 있다.
 (function bar() { console.log('bar'); });
 bar(); // ReferenceError: bar is not defined
+
+
+// javascript 엔진은 생성된 함수를 호출하기 위해 함수 이름과 동일한 이름의 식별자를 암묵적으로 생성하고
+// 거기에 함수 객체를 할당한다.
+// 함수는 함수 이름으로 호출하는 것이 아니라 함수 객체를 가리키는 식별자로 호출한다.
+
+var add = function add(x, y) {
+    return x + y;
+};
+
+console.log(add(2, 5)); // 7
+// 결론적으로 javascript 엔진은 함수 선언문을 함수 표현식으로 변환해 함수 객체를 생성한다고 볼 수 있다.
+// but 선언문과 표현문이 완전 정확히 동일하게 동작하는 것은 아님
