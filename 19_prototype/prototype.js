@@ -31,6 +31,37 @@ console.log(circle2.getArea()); // 12.566370614359172
 // 모든 객체는 하나의 프로토타입을 갖는다. 그리고 모든 프로토타입은 생성자 함수와 연결되어 있다.
 // 객체와 프로토타입과 생성자 함수는 연결되어 있다.
 
-const person = { name: 'JeongDaeMan'};
+const person = { name: 'JeongDaeMan' };
 console.log('person', person);
 console.log('person.__proto__', person.__proto__);
+
+
+const obj = {};
+const parent = { x: 1 };
+
+// getter 함수인 get __proto__가 호출되어 obj 객체의 프로토타입을 취득
+obj.__proto__;
+// setter함수인 set __proto__가 호출되어 obj 객체의 프로토타입을 교체
+obj.__proto__ = parent;
+
+console.log(obj.x); // 1
+
+
+// person 객체는 __proto__ 프로퍼티를 소유하지 않는다.
+console.log(person.hasOwnProperty('__proto__')); // false
+
+// __proto__ 프로퍼티는 모든 객체의 프로토타입 객체인 Object.prototype의 접근자 프로퍼티다.
+console.log(Object.getOwnPropertyDescriptor(Object.prototype, '__proto__'));
+// {get: ƒ, set: ƒ, enumerable: false, configurable: true}
+
+// 모든 객체는 Object.prototype의 접근자 프로퍼티 __proto__를 상속받아 사용할 수 있다.
+console.log({}.__proto__ === Object.prototype); // true
+
+
+const parent1 = {};
+const child1 = {};
+
+// child의 프로토타입을 parent로 설정
+child1.__proto__ = parent1;
+// parent의 프로토타입을 child로 설정
+// parent1.__proto__ = child1; // TypeError: Cyclic __proto__ value
