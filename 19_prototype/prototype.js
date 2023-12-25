@@ -65,3 +65,13 @@ const child1 = {};
 child1.__proto__ = parent1;
 // parent의 프로토타입을 child로 설정
 // parent1.__proto__ = child1; // TypeError: Cyclic __proto__ value
+
+
+// obj는 프로토타입 체인의 종점이다. 따라서 Object.__proto__를 상속받을 수 없다.
+const obj = Object.create(null);
+
+// obj는 Object.__proto__를 상속받을 수 없다.
+console.log(obj.__proto__); // undefined
+
+// 따라서 __proto__보다 Object.getPrototypeOf 메서드를 사용하는 편이 좋다.
+console.log(Object.getPrototypeOf(obj)); // null
