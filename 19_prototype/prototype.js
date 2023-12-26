@@ -75,3 +75,10 @@ console.log(obj.__proto__); // undefined
 
 // 따라서 __proto__보다 Object.getPrototypeOf 메서드를 사용하는 편이 좋다.
 console.log(Object.getPrototypeOf(obj)); // null
+
+
+// 함수 객체는 prototype 프로퍼티를 소유한다.
+(function () { }).hasOwnProperty('prototype'); // -> true
+
+// 일반 객체는 prototype 프로퍼티를 소유하지 않는다.
+({}).hasOwnProperty('prototype'); // -> false
